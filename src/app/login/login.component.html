@@ -1,0 +1,21 @@
+<div class="wrapper fadeInDown">
+  <div id="formContent">
+    <!-- Tabs Titles -->
+
+    <!-- Icon -->
+    <div class="fadeIn first text-left login">
+      Login
+    </div>
+
+    <!-- Login Form -->
+    <form>
+      <input type="text" id="login" [(ngModel)]="userName" class="fadeIn second" name="login" placeholder="Id">
+      <div *ngIf="idrequired" class="required-error">Id is required</div>
+      <input type="text" id="password" [(ngModel)]="password" class="fadeIn third" name="login" placeholder="Name">
+      <div *ngIf="namerequired" class="required-error">Name required</div>
+      <input type="button" class="fadeIn fourth" value="Log In" (click)="onSubmit()" >
+    </form>
+
+
+  </div>
+</div>

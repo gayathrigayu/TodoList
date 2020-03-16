@@ -1,0 +1,19 @@
+<div class="list-wrapper" *ngIf="tasksListResponse">
+    <ul class="d-flex flex-column-reverse todo-list">
+        <li *ngFor="let item of tasksListResponse | filterByTask : issearchText">
+            <div class="form-check" [ngClass]="{'completed' : item.completed}">
+                <label class="form-check-label">
+          <input class="checkbox" type="checkbox" [checked]="item.completed" (change)="updateComplete($event, item)">{{item.name}}
+          <i class="input-helper"></i>
+        </label>
+            </div>
+            <i class="fa fa-pencil" (click)="editTask(item)"></i>
+            <i class="fa fa-remove" (click)="deleteTask(item)"></i>
+        </li>
+
+    </ul>
+</div>
+
+<ng-container *ngIf="showCreateOrEditTaks && showCreateOrEditTaks == true">
+    <app-task-create [enableNewTaskField]="isEnablleTextForTask" [taskData]="taskInputData" (onTaskComplete)="updateTaskList()"></app-task-create>
+</ng-container>
