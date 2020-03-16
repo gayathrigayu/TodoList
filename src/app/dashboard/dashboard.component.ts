@@ -16,6 +16,7 @@ export class DashboardComponent implements OnInit {
   pieChartInfo : number[];
   public isTaskListUpdated : boolean = false;
   public userName : string;
+  public searchText : string;
   constructor(
     private appService: AppService,
     private router: Router
